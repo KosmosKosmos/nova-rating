@@ -1,0 +1,46 @@
+{
+    "name": "kosmoskosmos/rating",
+    "description": "Allows multiple models to be rated with a fivestar like system.",
+    "keywords": [
+        "laravel",
+        "rateable",
+        "rating",
+        "vote",
+        "fivestar",
+        "laravel 6"
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
+    "homepage": "https://github.com/kosmoskosmos/nova-rating",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.2",
+        "illuminate/support": "~6.0",
+        "illuminate/database": "~6.0"
+
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "KosmosKosmos\\Rating\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "KosmosKosmos\\Rating\\RateableServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
