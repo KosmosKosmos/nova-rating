@@ -1,8 +1,9 @@
 {
     "name": "kosmoskosmos/rating",
-    "description": "Allows multiple models to be rated with a fivestar like system.",
+    "description": "Allows multiple models to be rated with a five-star like system on Laravel Nova",
     "keywords": [
         "laravel",
+        "nova",
         "rateable",
         "rating",
         "vote",
