@@ -1,5 +1,5 @@
-#Nova Rateable Field Extension
-##About
+# Nova Rateable Field Extension
+## About
 This package introduces a __Rateable Trait__ to your application's models.
 
 Also, it introduces an interactive __Field__ to your Nova backend that makes it possible to instantly rate any property you wish.
@@ -16,14 +16,14 @@ of a product.
 
 Hoever, you can also generate a field that returns the average rating over all three categories combined with the virtual attribute `averageRating`
 
-##Credits 
+## Credits 
 
 Thank you for doing the base work: 
 
 https://github.com/willvincent/laravel-rateable
 https://github.com/craigh411/vue-star-rating
 
-####Special credits
+#### Special credits
 
 Thank you for inspiring us:
 
@@ -31,13 +31,13 @@ https://novapackages.com/packages/nikaia/nova-rating-field
 
 _If you need some more documentation about possible options, this might be a good documentation resource._
 
-##Installation
+## Installation
 
 1. `composer require kosmoskosmos/nova-rateable-field`
 2. `php artisan vendor:publish`
 3. `php artisan migrate`
 
-##Usage
+## Usage
 
 ```php
 public function fields(Request $request)
