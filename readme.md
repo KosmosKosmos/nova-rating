@@ -3,6 +3,8 @@
 ## About
 This package introduces a __Rateable Trait__ to your application's models on __Laravel Nova__.
 
+This package introduces a __Rateable Trait__ to your application's models.
+
 Also, it introduces an interactive __Field__ to your Nova backend that makes it possible to instantly rate any property you wish.
 
 With this package it is possible to perform multiple category rating.
