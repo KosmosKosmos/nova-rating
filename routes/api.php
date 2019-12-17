@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('setrating', function(Request $request) {
-    $model = $request->resource::find($request->resource_id);
-    return response()->json(['success' => $model->updateRating($request->rating, $request->category)]);
-});
+Route::post('setrating', "RateableController@setRating");
