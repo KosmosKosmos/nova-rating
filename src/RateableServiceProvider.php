@@ -45,6 +45,7 @@ class RateableServiceProvider extends ServiceProvider
         }
 
         Route::middleware(['nova', Authorize::class])
+            ->namespace("KosmosKosmos\Rating\Controllers")
             ->prefix('nova-vendor/kosmoskosmos')
             ->group(__DIR__ . '/../routes/api.php');
     }
