@@ -43,6 +43,7 @@
             initialized: false
         }),
         mounted() {
+            console.log(this.field);
             this.value = parseFloat(this.field.value) || 0;
             setTimeout(() => this.initialized = true);
         },
