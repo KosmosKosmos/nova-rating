@@ -16,25 +16,6 @@ class Rating extends Field
     public $component = 'rating';
 
     /**
-     * Default component styles.
-     *
-     * @var array
-     */
-    protected static $defaultStyles = [
-        'star-size' => 30,
-        'active-color' => 'var(--primary)',
-        'inactive-color' => '#d8d8d8',
-        'border-color' => 'var(--60)',
-        'border-width' => 0,
-        'padding' => 10,
-        'rounded-corners' => false,
-        'inline' => false,
-        'glow' => 0,
-        'glow-color' => '#fff',
-        'text-class' => 'inline-block text-80 h-9 pt-2',
-    ];
-
-    /**
      * Rating constructor.
      *
      * @param string $name
@@ -45,7 +26,7 @@ class Rating extends Field
     {
         parent::__construct($name, $attribute, $resolveCallback);
         $this->withMeta(['min' => 0, 'max' => 5]);
-        $this->withStyles(static::$defaultStyles);
+        $this->withStyles([]);
     }
 
     /**
@@ -114,7 +95,7 @@ class Rating extends Field
     public function withStyles(array $styles)
     {
         $build = [];
-        foreach (static::$defaultStyles as $key => $defaultValue) {
+        foreach (config('rating') as $key => $defaultValue) {
             $build[$key] = array_get($styles, $key, $defaultValue);
         }
 
@@ -134,5 +115,13 @@ class Rating extends Field
             'category' => $category,
             'endpoint' => '/nova-vendor/kosmoskosmos/setrating'
         ]);
+    }
+
+    public function starSize($size) {
+        $this->withMeta(['star-size' => $size]);
+    }
+
+    public function starPadding($padding) {
+        $this->withMeta(['padding' => $padding]);
     }
 }

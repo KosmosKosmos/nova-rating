@@ -31,6 +31,10 @@ class RateableServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../migrations/' => database_path('/migrations')
         ], 'migrations');
+
+        $this->publishes([
+            __DIR__ . '/../config/rating.php' => config_path('rating.php'),
+        ], 'config');
     }
 
     /**
@@ -49,6 +53,5 @@ class RateableServiceProvider extends ServiceProvider
             ->prefix('nova-vendor/kosmoskosmos')
             ->group(__DIR__ . '/../routes/api.php');
     }
-
 
 }

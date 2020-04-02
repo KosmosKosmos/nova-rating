@@ -19,6 +19,13 @@ of a product.
 
 However, you can also generate a field that returns the average rating over all three categories combined with the virtual attribute `averageRating`
 
+## Config Settings
+
+Run `php artisan vendor:publish --tag=config` to set default settings.
+You will find them in `config/rating.php`.
+
+You can also set a specific size and padding per field entry via calling the `starSize` and `padding` methods.
+
 ## Credits 
 
 Thank you for doing the base work: 
