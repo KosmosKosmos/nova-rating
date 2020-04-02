@@ -55,12 +55,35 @@ public function fields(Request $request)
     return [
         // ...
         // Define categories for to be rated.
-        Rating::make('Pizza Baking Skills', 'pizza')->hideFromIndex(),
-        Rating::make('Sushi Rolling Skills',  'sushi')->hideFromIndex(),
-        Rating::make('Bread Baking Skills', 'bread')->hideFromIndex(),
+        Rating::make('Pizza Baking Skills', 'pizza_rating')->hideFromIndex(),
+        Rating::make('Sushi Rolling Skills',  'sushi_rating')->hideFromIndex(),
+        Rating::make('Bread Baking Skills', 'bread_rating')->hideFromIndex(),
         // Show average rating from all three categories above.  
         Rating::make('Overall Skills', 'average_rating')->onlyOnIndex(), 
-        // ...    
+        // Show average rating from only one category above
+        Rating::make('Overall Bread Baking Skills', 'bread_average_rating')->onlyOnIndex(),  
     ];
 }
 ```
+
+Extend your model like this: 
+```php
+class MyModel extends Model {
+    // use the Rateable trait 
+    use \KosmosKosmos\Rating\Rateable;
+    
+    // use the getAttribute() function to inject the Trait's attribute-resolver
+    public function getAttribute($key) {
+        if ($result = $this->resolveRatingAttribute($key)) {
+            return $result;
+        }
+        return parent::getAttribute($key);
+    }   
+
+}
+
+``` 
+
+### Attribute Naming Conventions
+
+To make best use of this plugin we advise to use the suffix `_rating` or `Rating` for your rateable fields.
