@@ -2,6 +2,7 @@
 
 namespace KosmosKosmos\Rating\Fields;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Laravel\Nova\Fields\Field;
 
@@ -124,12 +125,10 @@ class Rating extends Field
     {
         parent::resolve($resource, $attribute);
 
-        $attribute = Str::camel($this->attribute);
-
         $category = $attribute == 'averageRating' ? NULL : $this->attribute;
-        $average = $attribute == 'averageRating' ? $resource->averageRating() : $resource->averageCategoryRatings($this->attribute);
+
         $this->withMeta([
-            'value' => $average,
+            'value' => $resource->{$this->attribute},
             'resource' => get_class($resource),
             'resource_id' => $resource->id,
             'category' => $category,

@@ -1,6 +1,7 @@
 <?php namespace KosmosKosmos\Rating\Models;
 
 use Config;
+use Illuminate\Database\Eloquent\Builder;
 use KosmosKosmos\Rating\Events\RatingUpdatedEvent;
 use Illuminate\Database\Eloquent\Model;
 
@@ -45,12 +46,17 @@ class Rating extends Model
         return $this->belongsTo($userClassName);
     }
 
-    public function scopeFromCurrentUser($query) {
+    public function scopeFromCurrentUser(Builder $query) : Builder {
         return $query->where("user_id",\Auth::id());
     }
 
 
-    public function scopeWithCategory($query, $category) {
-        return $query->where("category",$category);
+    public function scopeWithCategory(Builder $query, $category = null) : Builder {
+
+        if ($category) {
+            return $query->where("category",$category);
+        }
+
+        return $query;
     }
 }
