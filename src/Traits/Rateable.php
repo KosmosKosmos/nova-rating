@@ -1,4 +1,4 @@
-<?php namespace KosmosKosmos\Rating;
+<?php namespace KosmosKosmos\Rating\Traits;
 
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
