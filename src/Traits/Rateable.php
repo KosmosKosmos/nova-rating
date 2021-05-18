@@ -125,7 +125,7 @@ trait Rateable {
 
     public function addRating($ratingValue, $category = null) {
         $rating = new Rating;
-        $rating->rating = (int)$ratingValue;
+        $rating->rating = (float) $ratingValue;
         $rating->category = $category;
         $rating->user_id = \Auth::id();
 
