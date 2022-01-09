@@ -43,7 +43,7 @@ _If you need some more documentation about possible options, this might be a goo
 
 ## Installation
 
-1. `composer require kosmoskosmos/nova-rateable-field`
+1. `composer require kosmoskosmos/rating`
 2. `php artisan vendor:publish`
 3. `php artisan migrate`
 
